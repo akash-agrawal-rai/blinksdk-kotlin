@@ -3,9 +3,9 @@ package ai.radius.blink.infrastructure
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
-object Serializer {
+public object Serializer {
     @JvmStatic
-    val moshiBuilder: Moshi.Builder = Moshi.Builder()
+    public val moshiBuilder: Moshi.Builder = Moshi.Builder()
         .add(OffsetDateTimeAdapter())
         .add(InstantAdapter())
         .add(LocalTimeAdapter())
@@ -19,7 +19,7 @@ object Serializer {
         .add(BigIntegerAdapter())
 
     @JvmStatic
-    val moshi: Moshi by lazy {
+    public val moshi: Moshi by lazy {
         moshiBuilder.build()
     }
 }

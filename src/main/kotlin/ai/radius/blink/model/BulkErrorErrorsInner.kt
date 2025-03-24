@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class BulkErrorErrorsInner (
+public data class BulkErrorErrorsInner (
 
     @Json(name = "externalId")
     val externalId: kotlin.String,

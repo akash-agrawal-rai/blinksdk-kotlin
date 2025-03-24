@@ -13,7 +13,7 @@ import com.squareup.moshi.Moshi
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
-class ApiClient(
+public class ApiClient(
     private var baseUrl: String = defaultBasePath,
     private val okHttpClientBuilder: OkHttpClient.Builder? = null,
     private val serializerBuilder: Moshi.Builder = Serializer.moshiBuilder,
@@ -26,7 +26,7 @@ class ApiClient(
     )
 ) {
     private val apiAuthorizations = mutableMapOf<String, Interceptor>()
-    var logger: ((String) -> Unit)? = null
+    public var logger: ((String) -> Unit)? = null
 
     private val retrofitBuilder: Retrofit.Builder by lazy {
         Retrofit.Builder()
@@ -65,7 +65,7 @@ class ApiClient(
      * @param authorization Authorization interceptor
      * @return ApiClient
      */
-    fun addAuthorization(authName: String, authorization: Interceptor): ApiClient {
+    public fun addAuthorization(authName: String, authorization: Interceptor): ApiClient {
         if (apiAuthorizations.containsKey(authName)) {
             throw RuntimeException("auth name $authName already in api authorizations")
         }
@@ -74,12 +74,12 @@ class ApiClient(
         return this
     }
 
-    fun setLogger(logger: (String) -> Unit): ApiClient {
+    public fun setLogger(logger: (String) -> Unit): ApiClient {
         this.logger = logger
         return this
     }
 
-    fun <S> createService(serviceClass: Class<S>): S {
+    public fun <S> createService(serviceClass: Class<S>): S {
         val usedCallFactory = this.callFactory ?: clientBuilder.build()
         return retrofitBuilder.callFactory(usedCallFactory).build().create(serviceClass)
     }
@@ -99,12 +99,12 @@ class ApiClient(
         }
     }
 
-    companion object {
+    public companion object {
         @JvmStatic
         protected val baseUrlKey: String = "ai.radius.blink.baseUrl"
 
         @JvmStatic
-        val defaultBasePath: String by lazy {
+        public val defaultBasePath: String by lazy {
             System.getProperties().getProperty(baseUrlKey, "http://localhost")
         }
     }

@@ -25,7 +25,9 @@ Retrieve all items
 val apiClient = ApiClient()
 val webService = apiClient.createWebservice(DefaultApi::class.java)
 
-val result : kotlin.collections.List<Item> = webService.itemsGet()
+launch(Dispatchers.IO) {
+    val result : kotlin.collections.List<Item> = webService.itemsGet()
+}
 ```
 
 ### Parameters
@@ -58,7 +60,9 @@ val apiClient = ApiClient()
 val webService = apiClient.createWebservice(DefaultApi::class.java)
 val upsertItem : kotlin.collections.List<UpsertItem> =  // kotlin.collections.List<UpsertItem> | 
 
-val result : kotlin.collections.List<Item> = webService.itemsPost(upsertItem)
+launch(Dispatchers.IO) {
+    val result : kotlin.collections.List<Item> = webService.itemsPost(upsertItem)
+}
 ```
 
 ### Parameters
@@ -92,7 +96,9 @@ Retrieve scan data from SA device
 val apiClient = ApiClient()
 val webService = apiClient.createWebservice(DefaultApi::class.java)
 
-val result : ScanResponseData = webService.scanGet()
+launch(Dispatchers.IO) {
+    val result : ScanResponseData = webService.scanGet()
+}
 ```
 
 ### Parameters
@@ -126,7 +132,9 @@ val webService = apiClient.createWebservice(DefaultApi::class.java)
 val id : kotlin.String = id_example // kotlin.String | 
 val externalId : kotlin.String = externalId_example // kotlin.String | 
 
-webService.transactionDelete(id, externalId)
+launch(Dispatchers.IO) {
+    webService.transactionDelete(id, externalId)
+}
 ```
 
 ### Parameters
@@ -163,7 +171,9 @@ val webService = apiClient.createWebservice(DefaultApi::class.java)
 val id : kotlin.String = id_example // kotlin.String | Internal transaction ID
 val externalId : kotlin.String = externalId_example // kotlin.String | External transaction ID
 
-val result : Transaction = webService.transactionGet(id, externalId)
+launch(Dispatchers.IO) {
+    val result : Transaction = webService.transactionGet(id, externalId)
+}
 ```
 
 ### Parameters
@@ -199,7 +209,9 @@ val apiClient = ApiClient()
 val webService = apiClient.createWebservice(DefaultApi::class.java)
 val transactionCreateRequest : TransactionCreateRequest =  // TransactionCreateRequest | 
 
-val result : Transaction = webService.transactionPost(transactionCreateRequest)
+launch(Dispatchers.IO) {
+    val result : Transaction = webService.transactionPost(transactionCreateRequest)
+}
 ```
 
 ### Parameters

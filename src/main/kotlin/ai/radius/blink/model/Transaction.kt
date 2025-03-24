@@ -33,7 +33,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class Transaction (
+public data class Transaction (
 
     @Json(name = "id")
     val id: kotlin.String,

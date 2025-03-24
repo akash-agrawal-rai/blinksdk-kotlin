@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ScannedItemExtras (
+public data class ScannedItemExtras (
 
     @Json(name = "sku")
     val sku: kotlin.String

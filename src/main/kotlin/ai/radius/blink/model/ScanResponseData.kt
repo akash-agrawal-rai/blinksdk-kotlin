@@ -31,7 +31,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ScanResponseData (
+public data class ScanResponseData (
 
     @Json(name = "id")
     val id: java.util.UUID,
@@ -56,7 +56,7 @@ data class ScanResponseData (
      * Values: ACTIVE,IDLE
      */
     @JsonClass(generateAdapter = false)
-    enum class Status(val value: kotlin.String) {
+    public enum class Status(public val value: kotlin.String) {
         @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
         @Json(name = "IDLE") IDLE("IDLE");
     }

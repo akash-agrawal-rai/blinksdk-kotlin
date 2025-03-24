@@ -2,7 +2,7 @@ package ai.radius.blink
 
 import ai.radius.blink.infrastructure.CollectionFormats.*
 import retrofit2.http.*
-import retrofit2.Call
+import retrofit2.Response
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
@@ -14,7 +14,7 @@ import ai.radius.blink.model.Transaction
 import ai.radius.blink.model.TransactionCreateRequest
 import ai.radius.blink.model.UpsertItem
 
-interface DefaultApi {
+public interface DefaultApi {
     /**
      * GET items
      * Retrieve all items
@@ -22,10 +22,10 @@ interface DefaultApi {
      * Responses:
      *  - 200: Successfully retrieved items
      *
-     * @return [Call]<[kotlin.collections.List<Item>]>
+     * @return [kotlin.collections.List<Item>]
      */
     @GET("items")
-    fun itemsGet(): Call<kotlin.collections.List<Item>>
+    public suspend fun itemsGet(): Response<kotlin.collections.List<Item>>
 
     /**
      * POST items
@@ -36,10 +36,10 @@ interface DefaultApi {
      *  - 400: Bad request
      *
      * @param upsertItem 
-     * @return [Call]<[kotlin.collections.List<Item>]>
+     * @return [kotlin.collections.List<Item>]
      */
     @POST("items")
-    fun itemsPost(@Body upsertItem: kotlin.collections.List<UpsertItem>): Call<kotlin.collections.List<Item>>
+    public suspend fun itemsPost(@Body upsertItem: kotlin.collections.List<UpsertItem>): Response<kotlin.collections.List<Item>>
 
     /**
      * GET scan
@@ -49,10 +49,10 @@ interface DefaultApi {
      *  - 200: Successful response with scan data
      *  - 400: Bad request
      *
-     * @return [Call]<[ScanResponseData]>
+     * @return [ScanResponseData]
      */
     @GET("scan")
-    fun scanGet(): Call<ScanResponseData>
+    public suspend fun scanGet(): Response<ScanResponseData>
 
     /**
      * DELETE transaction
@@ -64,10 +64,10 @@ interface DefaultApi {
      *
      * @param id  (optional)
      * @param externalId  (optional)
-     * @return [Call]<[Unit]>
+     * @return [Unit]
      */
     @DELETE("transaction")
-    fun transactionDelete(@Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Call<Unit>
+    public suspend fun transactionDelete(@Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Response<Unit>
 
     /**
      * GET transaction
@@ -79,10 +79,10 @@ interface DefaultApi {
      *
      * @param id Internal transaction ID (optional)
      * @param externalId External transaction ID (optional)
-     * @return [Call]<[Transaction]>
+     * @return [Transaction]
      */
     @GET("transaction")
-    fun transactionGet(@Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Call<Transaction>
+    public suspend fun transactionGet(@Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Response<Transaction>
 
     /**
      * POST transaction
@@ -93,9 +93,9 @@ interface DefaultApi {
      *  - 400: Bad request
      *
      * @param transactionCreateRequest 
-     * @return [Call]<[Transaction]>
+     * @return [Transaction]
      */
     @POST("transaction")
-    fun transactionPost(@Body transactionCreateRequest: TransactionCreateRequest): Call<Transaction>
+    public suspend fun transactionPost(@Body transactionCreateRequest: TransactionCreateRequest): Response<Transaction>
 
 }

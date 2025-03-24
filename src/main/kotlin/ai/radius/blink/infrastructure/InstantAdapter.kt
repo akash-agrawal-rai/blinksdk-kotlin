@@ -4,14 +4,14 @@ import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 import kotlinx.datetime.Instant
 
-class InstantAdapter {
+public class InstantAdapter {
     @ToJson
-    fun toJson(value: Instant): String {
+    public fun toJson(value: Instant): String {
         return value.toString()
     }
 
     @FromJson
-    fun fromJson(value: String): Instant {
+    public fun fromJson(value: String): Instant {
         return Instant.parse(value)
     }
 

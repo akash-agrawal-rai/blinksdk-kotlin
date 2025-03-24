@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class BulkError (
+public data class BulkError (
 
     @Json(name = "errors")
     val errors: kotlin.collections.List<BulkErrorErrorsInner>

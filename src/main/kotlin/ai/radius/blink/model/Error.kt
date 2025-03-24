@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class Error (
+public data class Error (
 
     @Json(name = "error")
     val error: kotlin.String

@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class UpsertItem (
+public data class UpsertItem (
 
     @Json(name = "externalId")
     val externalId: kotlin.String,

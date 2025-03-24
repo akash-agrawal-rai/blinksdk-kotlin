@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class TransactionCreateRequest (
+public data class TransactionCreateRequest (
 
     @Json(name = "externalId")
     val externalId: kotlin.String,

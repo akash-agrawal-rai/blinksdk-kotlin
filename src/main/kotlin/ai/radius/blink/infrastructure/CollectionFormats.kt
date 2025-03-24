@@ -1,16 +1,16 @@
 package ai.radius.blink.infrastructure
 
-class CollectionFormats {
+public class CollectionFormats {
 
-    open class CSVParams {
+    public open class CSVParams {
 
-        var params: List<String>
+        public var params: List<String>
 
-        constructor(params: List<String>) {
+        public constructor(params: List<String>) {
             this.params = params
         }
 
-        constructor(vararg params: String) {
+        public constructor(vararg params: String) {
             this.params = listOf(*params)
         }
 
@@ -19,38 +19,38 @@ class CollectionFormats {
         }
     }
 
-    open class SSVParams : CSVParams {
+    public open class SSVParams : CSVParams {
 
-        constructor(params: List<String>) : super(params)
+        public constructor(params: List<String>) : super(params)
 
-        constructor(vararg params: String) : super(*params)
+        public constructor(vararg params: String) : super(*params)
 
         override fun toString(): String {
             return params.joinToString(" ")
         }
     }
 
-    class TSVParams : CSVParams {
+    public class TSVParams : CSVParams {
 
-        constructor(params: List<String>) : super(params)
+        public constructor(params: List<String>) : super(params)
 
-        constructor(vararg params: String) : super(*params)
+        public constructor(vararg params: String) : super(*params)
 
         override fun toString(): String {
             return params.joinToString("\t")
         }
     }
 
-    class PIPESParams : CSVParams {
+    public class PIPESParams : CSVParams {
 
-        constructor(params: List<String>) : super(params)
+        public constructor(params: List<String>) : super(params)
 
-        constructor(vararg params: String) : super(*params)
+        public constructor(vararg params: String) : super(*params)
 
         override fun toString(): String {
             return params.joinToString("|")
         }
     }
 
-    class SPACEParams : SSVParams()
+    public class SPACEParams : SSVParams()
 }

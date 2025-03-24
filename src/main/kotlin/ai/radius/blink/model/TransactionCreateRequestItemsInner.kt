@@ -28,7 +28,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class TransactionCreateRequestItemsInner (
+public data class TransactionCreateRequestItemsInner (
 
     @Json(name = "sku")
     val sku: kotlin.String,

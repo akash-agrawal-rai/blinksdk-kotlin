@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ScannedItem (
+public data class ScannedItem (
 
     @Json(name = "line_item_id")
     val lineItemId: kotlin.Int,
@@ -52,7 +52,7 @@ data class ScannedItem (
      * Values: UPCMinusA,EANMinus13,GS1Minus128
      */
     @JsonClass(generateAdapter = false)
-    enum class DataEncoding(val value: kotlin.String) {
+    public enum class DataEncoding(public val value: kotlin.String) {
         @Json(name = "UPC-A") UPCMinusA("UPC-A"),
         @Json(name = "EAN-13") EANMinus13("EAN-13"),
         @Json(name = "GS1-128") GS1Minus128("GS1-128");
