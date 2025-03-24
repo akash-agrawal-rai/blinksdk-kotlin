@@ -26,9 +26,9 @@ import com.squareup.moshi.JsonClass
  * @param externalId 
  * @param sku 
  * @param upc 
- * @param upcEncoding 
  * @param name 
  * @param description 
+ * @param upcEncoding 
  * @param icon 
  */
 
@@ -36,25 +36,25 @@ import com.squareup.moshi.JsonClass
 data class Item (
 
     @Json(name = "id")
-    val id: kotlin.String? = null,
+    val id: kotlin.String,
 
     @Json(name = "externalId")
-    val externalId: kotlin.String? = null,
+    val externalId: kotlin.String,
 
     @Json(name = "sku")
-    val sku: kotlin.String? = null,
+    val sku: kotlin.String,
 
     @Json(name = "upc")
-    val upc: kotlin.String? = null,
+    val upc: kotlin.String,
+
+    @Json(name = "name")
+    val name: kotlin.String,
+
+    @Json(name = "description")
+    val description: kotlin.String,
 
     @Json(name = "upc_encoding")
     val upcEncoding: kotlin.String? = null,
-
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
-    @Json(name = "description")
-    val description: kotlin.String? = null,
 
     @Json(name = "icon")
     val icon: kotlin.String? = null

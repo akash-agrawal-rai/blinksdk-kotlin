@@ -4,10 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **lineItemId** | **kotlin.Int** |  |  [optional] |
-| **&#x60;data&#x60;** | **kotlin.String** |  |  [optional] |
+| **lineItemId** | **kotlin.Int** |  |  |
+| **&#x60;data&#x60;** | **kotlin.String** |  |  |
+| **extras** | [**ScannedItemExtras**](ScannedItemExtras.md) |  |  |
 | **dataEncoding** | [**inline**](#DataEncoding) |  |  [optional] |
-| **extras** | [**ScannedItemExtras**](ScannedItemExtras.md) |  |  [optional] |
 
 
 <a id="DataEncoding"></a>

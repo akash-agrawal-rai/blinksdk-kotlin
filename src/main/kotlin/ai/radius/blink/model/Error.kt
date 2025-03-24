@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
 data class Error (
 
     @Json(name = "error")
-    val error: kotlin.String? = null
+    val error: kotlin.String
 
 ) {
 

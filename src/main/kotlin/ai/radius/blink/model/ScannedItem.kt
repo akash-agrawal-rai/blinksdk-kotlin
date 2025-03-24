@@ -25,24 +25,24 @@ import com.squareup.moshi.JsonClass
  *
  * @param lineItemId 
  * @param `data` 
- * @param dataEncoding 
  * @param extras 
+ * @param dataEncoding 
  */
 
 
 data class ScannedItem (
 
     @Json(name = "line_item_id")
-    val lineItemId: kotlin.Int? = null,
+    val lineItemId: kotlin.Int,
 
     @Json(name = "data")
-    val `data`: kotlin.String? = null,
-
-    @Json(name = "data_encoding")
-    val dataEncoding: ScannedItem.DataEncoding? = null,
+    val `data`: kotlin.String,
 
     @Json(name = "extras")
-    val extras: ScannedItemExtras? = null
+    val extras: ScannedItemExtras,
+
+    @Json(name = "data_encoding")
+    val dataEncoding: ScannedItem.DataEncoding? = null
 
 ) {
 

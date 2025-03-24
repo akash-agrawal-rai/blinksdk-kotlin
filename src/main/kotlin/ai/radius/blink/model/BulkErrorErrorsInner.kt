@@ -30,10 +30,10 @@ import com.squareup.moshi.JsonClass
 data class BulkErrorErrorsInner (
 
     @Json(name = "externalId")
-    val externalId: kotlin.String? = null,
+    val externalId: kotlin.String,
 
     @Json(name = "error")
-    val error: kotlin.String? = null
+    val error: kotlin.String
 
 ) {
 

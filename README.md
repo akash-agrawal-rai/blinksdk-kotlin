@@ -66,7 +66,6 @@ All URIs are relative to *http://localhost*
  - [ai.radius.blink.model.Transaction](docs/Transaction.md)
  - [ai.radius.blink.model.TransactionCreateRequest](docs/TransactionCreateRequest.md)
  - [ai.radius.blink.model.TransactionCreateRequestItemsInner](docs/TransactionCreateRequestItemsInner.md)
- - [ai.radius.blink.model.TransactionDeleteRequest](docs/TransactionDeleteRequest.md)
  - [ai.radius.blink.model.UpsertItem](docs/UpsertItem.md)
 
 

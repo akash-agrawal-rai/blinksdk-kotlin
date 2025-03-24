@@ -12,7 +12,6 @@ import ai.radius.blink.model.Item
 import ai.radius.blink.model.ScanResponseData
 import ai.radius.blink.model.Transaction
 import ai.radius.blink.model.TransactionCreateRequest
-import ai.radius.blink.model.TransactionDeleteRequest
 import ai.radius.blink.model.UpsertItem
 
 interface DefaultApi {
@@ -63,13 +62,12 @@ interface DefaultApi {
      *  - 204: Transaction successfully deleted
      *  - 400: Bad request
      *
-     * @param transactionDeleteRequest 
      * @param id  (optional)
      * @param externalId  (optional)
      * @return [Call]<[Unit]>
      */
     @DELETE("transaction")
-    fun transactionDelete(@Body transactionDeleteRequest: TransactionDeleteRequest, @Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Call<Unit>
+    fun transactionDelete(@Query("id") id: kotlin.String? = null, @Query("externalId") externalId: kotlin.String? = null): Call<Unit>
 
     /**
      * GET transaction

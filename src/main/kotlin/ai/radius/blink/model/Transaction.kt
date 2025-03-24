@@ -27,34 +27,34 @@ import com.squareup.moshi.JsonClass
  * @param externalId 
  * @param deviceId 
  * @param storeTimezone 
- * @param transactionStartTime 
  * @param transactionEndTime 
  * @param items 
+ * @param transactionStartTime 
  */
 
 
 data class Transaction (
 
     @Json(name = "id")
-    val id: kotlin.String? = null,
+    val id: kotlin.String,
 
     @Json(name = "externalId")
-    val externalId: kotlin.String? = null,
+    val externalId: kotlin.String,
 
     @Json(name = "device_id")
-    val deviceId: kotlin.String? = null,
+    val deviceId: kotlin.String,
 
     @Json(name = "store_timezone")
-    val storeTimezone: kotlin.String? = null,
-
-    @Json(name = "transaction_start_time")
-    val transactionStartTime: kotlinx.datetime.Instant? = null,
+    val storeTimezone: kotlin.String,
 
     @Json(name = "transaction_end_time")
-    val transactionEndTime: kotlinx.datetime.Instant? = null,
+    val transactionEndTime: kotlinx.datetime.Instant?,
 
     @Json(name = "items")
-    val items: kotlin.collections.List<TransactionCreateRequestItemsInner>? = null
+    val items: kotlin.collections.List<TransactionCreateRequestItemsInner>,
+
+    @Json(name = "transaction_start_time")
+    val transactionStartTime: kotlinx.datetime.Instant? = null
 
 ) {
 

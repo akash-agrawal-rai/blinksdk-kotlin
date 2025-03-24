@@ -123,15 +123,13 @@ Delete a transaction
 
 val apiClient = ApiClient()
 val webService = apiClient.createWebservice(DefaultApi::class.java)
-val transactionDeleteRequest : TransactionDeleteRequest =  // TransactionDeleteRequest | 
 val id : kotlin.String = id_example // kotlin.String | 
 val externalId : kotlin.String = externalId_example // kotlin.String | 
 
-webService.transactionDelete(transactionDeleteRequest, id, externalId)
+webService.transactionDelete(id, externalId)
 ```
 
 ### Parameters
-| **transactionDeleteRequest** | [**TransactionDeleteRequest**](TransactionDeleteRequest.md)|  | |
 | **id** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -147,7 +145,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

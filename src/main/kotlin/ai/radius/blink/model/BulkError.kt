@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class BulkError (
 
     @Json(name = "errors")
-    val errors: kotlin.collections.List<BulkErrorErrorsInner>? = null
+    val errors: kotlin.collections.List<BulkErrorErrorsInner>
 
 ) {
 

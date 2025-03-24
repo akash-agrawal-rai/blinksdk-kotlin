@@ -31,13 +31,13 @@ import com.squareup.moshi.JsonClass
 data class TransactionCreateRequestItemsInner (
 
     @Json(name = "sku")
-    val sku: kotlin.String? = null,
+    val sku: kotlin.String,
 
     @Json(name = "upc")
-    val upc: kotlin.String? = null,
+    val upc: kotlin.String,
 
     @Json(name = "quantity")
-    val quantity: kotlin.Int? = null
+    val quantity: kotlin.Int
 
 ) {
 

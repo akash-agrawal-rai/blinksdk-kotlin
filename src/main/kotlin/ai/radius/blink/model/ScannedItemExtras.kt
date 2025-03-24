@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
 data class ScannedItemExtras (
 
     @Json(name = "sku")
-    val sku: kotlin.String? = null
+    val sku: kotlin.String
 
 ) {
 

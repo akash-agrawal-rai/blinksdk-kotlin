@@ -4,11 +4,11 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
-| **createdAt** | [**kotlinx.datetime.Instant**](kotlinx.datetime.Instant.md) |  |  [optional] |
-| **deviceId** | **kotlin.String** |  |  [optional] |
-| **status** | [**inline**](#Status) |  |  [optional] |
-| **scanData** | [**kotlin.collections.List&lt;ScannedItem&gt;**](ScannedItem.md) |  |  [optional] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  |
+| **createdAt** | [**kotlinx.datetime.Instant**](kotlinx.datetime.Instant.md) |  |  |
+| **deviceId** | **kotlin.String** |  |  |
+| **status** | [**inline**](#Status) |  |  |
+| **scanData** | [**kotlin.collections.List&lt;ScannedItem&gt;**](ScannedItem.md) |  |  |
 
 
 <a id="Status"></a>

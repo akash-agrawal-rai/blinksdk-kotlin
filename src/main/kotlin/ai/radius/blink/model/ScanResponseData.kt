@@ -34,19 +34,19 @@ import com.squareup.moshi.JsonClass
 data class ScanResponseData (
 
     @Json(name = "id")
-    val id: java.util.UUID? = null,
+    val id: java.util.UUID,
 
     @Json(name = "created_at")
-    val createdAt: kotlinx.datetime.Instant? = null,
+    val createdAt: kotlinx.datetime.Instant,
 
     @Json(name = "device_id")
-    val deviceId: kotlin.String? = null,
+    val deviceId: kotlin.String,
 
     @Json(name = "status")
-    val status: ScanResponseData.Status? = null,
+    val status: ScanResponseData.Status,
 
     @Json(name = "scan_data")
-    val scanData: kotlin.collections.List<ScannedItem>? = null
+    val scanData: kotlin.collections.List<ScannedItem>
 
 ) {
 
