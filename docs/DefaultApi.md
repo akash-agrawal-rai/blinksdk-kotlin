@@ -4,29 +4,36 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**itemsGet**](DefaultApi.md#itemsGet) | **GET** items | Retrieve all items |
-| [**itemsPost**](DefaultApi.md#itemsPost) | **POST** items | Update or Insert new items |
-| [**scanGet**](DefaultApi.md#scanGet) | **GET** scan | Retrieve scan data from SA device |
-| [**transactionDelete**](DefaultApi.md#transactionDelete) | **DELETE** transaction | Delete a transaction |
-| [**transactionGet**](DefaultApi.md#transactionGet) | **GET** transaction | Retrieve a transaction by ID or external ID |
-| [**transactionPost**](DefaultApi.md#transactionPost) | **POST** transaction | Create a new transaction |
+| [**itemsGet**](DefaultApi.md#itemsGet) | **GET** /items | Retrieve all items |
+| [**itemsPost**](DefaultApi.md#itemsPost) | **POST** /items | Update or Insert new items |
+| [**scanGet**](DefaultApi.md#scanGet) | **GET** /scan | Retrieve scan data from SA device |
+| [**transactionDelete**](DefaultApi.md#transactionDelete) | **DELETE** /transaction | Delete a transaction |
+| [**transactionGet**](DefaultApi.md#transactionGet) | **GET** /transaction | Retrieve a transaction by ID or external ID |
+| [**transactionPost**](DefaultApi.md#transactionPost) | **POST** /transaction | Create a new transaction |
 
 
+<a id="itemsGet"></a>
+# **itemsGet**
+> kotlin.collections.List&lt;Item&gt; itemsGet()
 
 Retrieve all items
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
-
-launch(Dispatchers.IO) {
-    val result : kotlin.collections.List<Item> = webService.itemsGet()
+val apiInstance = DefaultApi()
+try {
+    val result : kotlin.collections.List<Item> = apiInstance.itemsGet()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#itemsGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#itemsGet")
+    e.printStackTrace()
 }
 ```
 
@@ -46,22 +53,29 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="itemsPost"></a>
+# **itemsPost**
+> kotlin.collections.List&lt;Item&gt; itemsPost(upsertItem)
 
 Update or Insert new items
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
+val apiInstance = DefaultApi()
 val upsertItem : kotlin.collections.List<UpsertItem> =  // kotlin.collections.List<UpsertItem> | 
-
-launch(Dispatchers.IO) {
-    val result : kotlin.collections.List<Item> = webService.itemsPost(upsertItem)
+try {
+    val result : kotlin.collections.List<Item> = apiInstance.itemsPost(upsertItem)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#itemsPost")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#itemsPost")
+    e.printStackTrace()
 }
 ```
 
@@ -83,21 +97,28 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a id="scanGet"></a>
+# **scanGet**
+> ScanResponseData scanGet()
 
 Retrieve scan data from SA device
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
-
-launch(Dispatchers.IO) {
-    val result : ScanResponseData = webService.scanGet()
+val apiInstance = DefaultApi()
+try {
+    val result : ScanResponseData = apiInstance.scanGet()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#scanGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#scanGet")
+    e.printStackTrace()
 }
 ```
 
@@ -117,23 +138,29 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="transactionDelete"></a>
+# **transactionDelete**
+> transactionDelete(id, externalId)
 
 Delete a transaction
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
+val apiInstance = DefaultApi()
 val id : kotlin.String = id_example // kotlin.String | 
 val externalId : kotlin.String = externalId_example // kotlin.String | 
-
-launch(Dispatchers.IO) {
-    webService.transactionDelete(id, externalId)
+try {
+    apiInstance.transactionDelete(id, externalId)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#transactionDelete")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#transactionDelete")
+    e.printStackTrace()
 }
 ```
 
@@ -156,23 +183,30 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="transactionGet"></a>
+# **transactionGet**
+> Transaction transactionGet(id, externalId)
 
 Retrieve a transaction by ID or external ID
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
+val apiInstance = DefaultApi()
 val id : kotlin.String = id_example // kotlin.String | Internal transaction ID
 val externalId : kotlin.String = externalId_example // kotlin.String | External transaction ID
-
-launch(Dispatchers.IO) {
-    val result : Transaction = webService.transactionGet(id, externalId)
+try {
+    val result : Transaction = apiInstance.transactionGet(id, externalId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#transactionGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#transactionGet")
+    e.printStackTrace()
 }
 ```
 
@@ -195,22 +229,29 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="transactionPost"></a>
+# **transactionPost**
+> Transaction transactionPost(transactionCreateRequest)
 
 Create a new transaction
 
 ### Example
 ```kotlin
 // Import classes:
-//import ai.radius.blink.*
-//import ai.radius.blink.infrastructure.*
-//import ai.radius.blink.model.*
+//import rai.blink.infrastructure.*
+//import rai.blink.model.*
 
-val apiClient = ApiClient()
-val webService = apiClient.createWebservice(DefaultApi::class.java)
+val apiInstance = DefaultApi()
 val transactionCreateRequest : TransactionCreateRequest =  // TransactionCreateRequest | 
-
-launch(Dispatchers.IO) {
-    val result : Transaction = webService.transactionPost(transactionCreateRequest)
+try {
+    val result : Transaction = apiInstance.transactionPost(transactionCreateRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#transactionPost")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#transactionPost")
+    e.printStackTrace()
 }
 ```
 

@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  |
+| **id** | **kotlin.String** |  |  |
 | **createdAt** | [**kotlinx.datetime.Instant**](kotlinx.datetime.Instant.md) |  |  |
 | **deviceId** | **kotlin.String** |  |  |
 | **status** | [**inline**](#Status) |  |  |
