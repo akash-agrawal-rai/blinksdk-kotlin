@@ -35,5 +35,4 @@ dependencyResolutionManagement {
       mavenCentral()
   }
 }
-rootProject.name = "raiblink"
-include(":src:rai:blink")
+rootProject.name = "blinksdk"
