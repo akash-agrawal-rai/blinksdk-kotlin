@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform") version "2.1.20" // kotlin_version
     kotlin("plugin.serialization") version "2.1.20" // kotlin_version
-    id("com.android.library") version "8.9.0"
+    id("com.android.library") version "8.9.1"
 }
 
 group = "rai.blink"
@@ -84,11 +84,11 @@ kotlin {
 
 android {
     namespace = "rai.blink"
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
         aarMetadata {
-            minCompileSdk = 29
+            minCompileSdk = 26
         }
     }
 }

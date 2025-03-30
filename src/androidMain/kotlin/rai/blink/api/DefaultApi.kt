@@ -15,8 +15,6 @@
 
 package rai.blink.api
 
-import rai.blink.model.BulkError
-import rai.blink.model.Error
 import rai.blink.model.Item
 import rai.blink.model.ScanResponseData
 import rai.blink.model.Transaction
@@ -26,12 +24,14 @@ import rai.blink.model.UpsertItem
 import rai.blink.infrastructure.*
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.serialization.json.Json
-import io.ktor.http.ParametersBuilder
 import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
 
 public open class DefaultApi : ApiClient {
@@ -53,7 +53,6 @@ public open class DefaultApi : ApiClient {
      * 
      * @return kotlin.collections.List<Item>
      */
-    @Suppress("UNCHECKED_CAST")
     public open suspend fun itemsGet(): HttpResponse<kotlin.collections.List<Item>> {
 
         val localVariableAuthNames = listOf<String>()
@@ -95,7 +94,6 @@ public open class DefaultApi : ApiClient {
      * @param upsertItem 
      * @return kotlin.collections.List<Item>
      */
-    @Suppress("UNCHECKED_CAST")
     public open suspend fun itemsPost(upsertItem: kotlin.collections.List<UpsertItem>): HttpResponse<kotlin.collections.List<Item>> {
 
         val localVariableAuthNames = listOf<String>()
@@ -144,7 +142,6 @@ public open class DefaultApi : ApiClient {
      * 
      * @return ScanResponseData
      */
-    @Suppress("UNCHECKED_CAST")
     public open suspend fun scanGet(): HttpResponse<ScanResponseData> {
 
         val localVariableAuthNames = listOf<String>()
@@ -169,6 +166,38 @@ public open class DefaultApi : ApiClient {
             localVariableAuthNames
         ).wrap()
     }
+
+    /**
+     * Retrieve scan data from SA device
+     * 
+     * @return ScanResponseData
+     */
+    public fun smartsense(): Flow<HttpResponse<ScanResponseData>> = flow {
+        while (true) {
+
+            val localVariableAuthNames = listOf<String>()
+
+            val localVariableBody = 
+                io.ktor.client.utils.EmptyContent
+
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+                RequestMethod.GET,
+                "/scan",
+                query = localVariableQuery,
+                headers = localVariableHeaders,
+                requiresAuthentication = false,
+            )
+            val response: HttpResponse<ScanResponseData> = request(
+                localVariableConfig,
+                localVariableBody,
+                localVariableAuthNames
+            ).wrap()
+            emit(response)
+        }
+    }.flowOn(Dispatchers.IO)
 
 
     /**
@@ -213,7 +242,6 @@ public open class DefaultApi : ApiClient {
      * @param externalId External transaction ID (optional)
      * @return Transaction
      */
-    @Suppress("UNCHECKED_CAST")
     public open suspend fun transactionGet(id: kotlin.String? = null, externalId: kotlin.String? = null): HttpResponse<Transaction> {
 
         val localVariableAuthNames = listOf<String>()
@@ -248,12 +276,9 @@ public open class DefaultApi : ApiClient {
      * @param transactionCreateRequest 
      * @return Transaction
      */
-    @Suppress("UNCHECKED_CAST")
     public open suspend fun transactionPost(transactionCreateRequest: TransactionCreateRequest): HttpResponse<Transaction> {
 
         val localVariableAuthNames = listOf<String>()
-
-        val localVariableBody = transactionCreateRequest
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
         val localVariableHeaders = mutableMapOf<String, String>()
@@ -268,7 +293,7 @@ public open class DefaultApi : ApiClient {
 
         return jsonRequest(
             localVariableConfig,
-            localVariableBody,
+            transactionCreateRequest,
             localVariableAuthNames
         ).wrap()
     }
