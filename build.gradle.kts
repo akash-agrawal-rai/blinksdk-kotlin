@@ -38,7 +38,7 @@ kotlin {
                 api("io.ktor:ktor-client-content-negotiation:$ktor_version")
                 api("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
 
-                api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
             }
         }
 
@@ -71,6 +71,12 @@ kotlin {
         jsMain {
             dependencies {
                 api("io.ktor:ktor-client-js:$ktor_version")
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation("io.ktor:ktor-client-okhttp:$ktor_version")
             }
         }
 

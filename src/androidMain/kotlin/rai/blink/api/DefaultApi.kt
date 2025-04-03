@@ -167,38 +167,6 @@ public open class DefaultApi : ApiClient {
         ).wrap()
     }
 
-    /**
-     * Retrieve scan data from SA device
-     * 
-     * @return ScanResponseData
-     */
-    public fun smartsense(): Flow<HttpResponse<ScanResponseData>> = flow {
-        while (true) {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-                RequestMethod.GET,
-                "/scan",
-                query = localVariableQuery,
-                headers = localVariableHeaders,
-                requiresAuthentication = false,
-            )
-            val response: HttpResponse<ScanResponseData> = request(
-                localVariableConfig,
-                localVariableBody,
-                localVariableAuthNames
-            ).wrap()
-            emit(response)
-        }
-    }.flowOn(Dispatchers.IO)
-
 
     /**
      * Delete a transaction
